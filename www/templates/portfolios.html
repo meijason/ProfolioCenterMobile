@@ -1,0 +1,32 @@
+<ion-view view-title="Portfolios">
+  <ion-content>
+					<ion-list>
+						<ion-item ng-repeat="port in portfolios" href="#/app/portfolio/{{port._id}}" class="item-thumbnail-left">
+							<div class="media-body">
+                                <h3 class="media-heading">{{port.name}}</h3>
+                                <p>{{port.description}}</p>
+                            </div>
+                            <div class="media-left media-middle">
+                                <a ui-sref="app.portfoliodetail({id: port._id})">
+                                Details
+                                </a>
+                            </div>
+						 </ion-item>
+                    </ion-list>
+                    <div class="">
+                        <hr>
+                        <h3>Create Portfolio:</h3>
+                        <form ng-submit="addPortfolio()">
+                            <div class="form-group">
+                                <label class="sr-only" for="name">Name</label>
+                                <input type="text" class="form-control input-sm" id="name" placeholder="Enter Name" ng-model="portfolio.name" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="description">Description</label>
+                                <input type="text" class="form-control input-sm" id="description" placeholder="Enter Description" ng-model="portfolio.description" required>
+                            </div>
+                            <button type="submit" class="btn btn-info btn-sm">Create New Portfolio</button>
+                        </form>
+                    </div>
+  </ion-content>
+</ion-view>
